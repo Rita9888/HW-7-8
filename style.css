@@ -1,0 +1,62 @@
+#information{
+    flex-direction: column;
+}
+
+.form{
+    width: 100%;
+}
+
+.text_description{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+/* #numbLevel,
+#numbKills,
+#textWeapons{
+    display: none;
+} */
+
+.cell{
+    width: 180px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.detailInfo{
+    display: flex;
+}
+
+.detailInfo .detailsText{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailInfo .detailsElem{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailInfo .detailsText .text{
+    padding: 10px;
+    border: 1px solid #000;
+
+}
+
+.detailInfo .detailsElem .elem{
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+#all_info{
+    display: flex;
+    flex-direction: column;
+}
+
+#create_person{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}

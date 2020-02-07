@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel ="stylesheet" href="./style.css"> 
+    <title>ES6 CRUD</title>
+  </head>
+  <body>
+
+    <div id="information">
+      <h1> Тест таблица </h1>
+      <form>
+        <!--отрисуем таблицу и создадим кнопка РЕДАКТИРОВАТЬ и УДАЛИТЬ-->
+      <!--  <div class="text_description">
+          <div class="text_name strong">Имя</div>
+        </div>
+      -->
+
+
+      <!--отрисовка таблицы с данными об объектах через JS. около каждого так же
+      создается кнопка РЕДАКТИРОВАТЬ и УДАЛИТЬ-->
+      </form>
+    </div>
+    <br>
+
+    <div id="all_info">
+      <h2>Detailed info</h2>
+      <form>
+        <!--<div class="detailInfo">
+          <div class="details">
+            <div class="elem">Имя</div>
+          </div>
+          <div class="details">
+            <div class="elem">12e12e</div>
+            <div class="elem">wefwef</div>
+            <div class="elem">1wefwefwef</div>
+          </div>
+        </div>
+        <input type="button" class="buttons" id="mainMenu2" value="Главное меню">-->
+      </form>
+    </div>
+    <br>
+
+    <div id="create_person">
+      <h2>Edit info</h2>
+      <form id = "editForm">
+        <div class="radio_btn">
+          <div><input type="radio" id="radio_ext1" name="radioExt" value="killer" >Киллер</div>
+          <div><input type="radio" id="radio_ext2" name="radioExt" value="sniper">Снайпер</div>
+        </div>
+        <br>
+      <span>Имя:</span><input type="text" class="some-form__hint" id="textFirstName" value="John" required><br><br>
+      <span>Фамилия:</span><input type="text" id="textSurname" value="Lenon" required><br><br>
+      <span>Отчество:</span><input type="text" id="textPatronymic" value="Dav" required><br><br>
+      <span>Возраст:</span><input type="number" id="textAge" value="19" required><br><br>
+      <span>Женат/Замужем:</span><input type="radio" id="textMarried" value="false" onclick="foo(this)" required><br><br>
+      <div class = "firstChildClass"  style = "display: none">
+      <span>Оружие:</span id><input type="text" id="textWeapons" value="пистолет" required><br><br>
+      <span>Количество убийств:</span><input type="number" id="numbKills" value="20" required><br><br>
+    </div>
+    <div class = "secondChildClass"  style = "display: none">
+      <span>Уровень:</span><input type="number" id="numbLevel" value="80" required><br><br>
+    </div>
+      <input type="button" id="createPerson" class="buttons" value="Добавить в шайку нового!">
+      <input type="button" id="mainMenu" class="buttons" value="Главная страница">
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
