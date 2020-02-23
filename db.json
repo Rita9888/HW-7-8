@@ -1,0 +1,69 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "_firstName": "John",
+      "_surname": "aaaa",
+      "_patronymic": "HHHAaa",
+      "_age": 9,
+      "_married": true,
+      "type": "killer",
+      "_weapons": "pist",
+      "_kills": 88
+    },
+    {
+      "id": 2,
+      "_firstName": "Micle",
+      "_surname": "bbb",
+      "_patronymic": "KKKKSSS",
+      "_age": 9,
+      "_married": true,
+      "type": "killer",
+      "_weapons": "pist",
+      "_kills": 88
+    },
+    {
+      "id": 3,
+      "_firstName": "Anna",
+      "_surname": "cccc",
+      "_patronymic": "LLLDD",
+      "_age": 9,
+      "_married": false,
+      "type": "killer",
+      "_weapons": "pist",
+      "_kills": 88
+    },
+    {
+      "_firstName": "John",
+      "_surname": "Lenon",
+      "_patronymic": "Dav",
+      "_age": "19",
+      "_married": "false",
+      "type": "killer",
+      "_weapons": "пистолет",
+      "_kills": "20",
+      "id": 4
+    },
+    {
+      "_firstName": "John",
+      "_surname": "Lenon",
+      "_patronymic": "Dav",
+      "_age": "19",
+      "_married": "false",
+      "type": "sniper",
+      "_level": "82",
+      "id": 5
+    },
+    {
+      "_firstName": "Johnxcv",
+      "_surname": "Lenon",
+      "_patronymic": "Dav",
+      "_age": "19",
+      "_married": "false",
+      "type": "killer",
+      "_weapons": "пистолет",
+      "_kills": "20",
+      "id": 6
+    }
+  ]
+}

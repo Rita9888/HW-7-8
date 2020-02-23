@@ -18,8 +18,10 @@ function editBandit(i){
   //удаление информации о персоне из массива и страницы
   
   function deleteBandit(i,arrBandits) {
+    const id = arrBandits[i].id;
     arrBandits.splice(i,1);
     printInfo(arrBandits);
+    deleteData(id,requestURL)
   }
   
   // вывод всей информации на странице о выбранной персоне в классе all_info
@@ -88,11 +90,11 @@ function editBandit(i){
       //каждое i - информация о персоне
   
       form[0].innerHTML+='<div class="text_description">'+
-        '<div class="cell text_name " id="details'+i+'">'+arrBandits[i].firstName  + '</div>' +
-        '<div class="cell text_suname">'+ arrBandits[i].surname + '</div>' +
-        '<div class="cell text_patronyc">'+ arrBandits[i].patronymic  + '</div>' +
-        '<div class="cell text_age">'+ arrBandits[i].age + '</div>' +
-        '<div class="cell text_married">'+ arrBandits[i].married + '</div>' +
+        '<div class="cell text_name " id="details'+i+'">'+arrBandits[i]._firstName  + '</div>' +
+        '<div class="cell text_suname">'+ arrBandits[i]._surname + '</div>' +
+        '<div class="cell text_patronyc">'+ arrBandits[i]._patronymic  + '</div>' +
+        '<div class="cell text_age">'+ arrBandits[i]._age + '</div>' +
+        '<div class="cell text_married">'+ arrBandits[i]._married + '</div>' +
         '<div class="cell text_name " id="edit'+i+'"> Редактировать </div>'+
         '<div class="cell text_name " id="remove'+i+'"> Удалить </div>'+ 
         '</div>';
@@ -122,7 +124,7 @@ function editBandit(i){
       });
       document.getElementById(remove).addEventListener("click",function(){
         if (confirm("Вы уверены, что хотите удалить инофрмацию о " +
-        arrBandits[i].firstName + " " +arrBandits[i].surname+"?")) {
+        arrBandits[i]._firstName + " " +arrBandits[i]._surname+"?")) {
             deleteBandit(i,arrBandits);
         } else {
   
@@ -325,10 +327,9 @@ function foo(c) {
   let bandit3 = new OneExtendsClass("Anna", "cccc", "LLLDD", 9, false, "pist", 88);
   arrBandits.push(bandit3); 
   display("information");
-  printInfo(arrBandits);
+  //printInfo(arrBandits);
   
-  
-  
+
   
   
   // главная страница готова
@@ -372,29 +373,106 @@ function foo(c) {
     let kills = document.getElementById("numbKills").value;
     let level = document.getElementById("numbLevel").value;
     let type = checkRadio();
+    
 
-    switch (type) {
+    let newBandit;
+    switch(type){
       case "killer":
-        arrBandits[arrBandits.length] = new OneExtendsClass(firstName, surname, patronymic, age, married, weapons, kills);
+        newBandit = new OneExtendsClass(firstName, surname, patronymic, age, married, weapons, kills);
+        break;
+      case "sniper":
+        newBandit =  new TwoExtendsClass(firstName, surname, patronymic, age, married, level);
+      break;   
+    }
+
+    serverPost(newBandit);
+    arrBandits.push(newBandit);
+    printInfo(arrBandits);
+    display("Information");
+    alert("Инфрмация сохранена");
+
+    /* switch (type) {
+      case "killer":
+        arrBandits.push(new OneExtendsClass(firstName, surname, patronymic, age, married, weapons, kills));
         printInfo(arrBandits);
+        serverPost();
         display("information");
         alert("Информация сохранена");
+        
       break;
       case "sniper":
         arrBandits[arrBandits.length] = new TwoExtendsClass(firstName, surname, patronymic, age, married, level);
         printInfo(arrBandits);
+        serverPost();
         display("information");
         alert("Информация сохранена");
-        break;
+        
+      break;
       default :
         arrBandits[arrBandits.length] = new OneExtendsClass(firstName, surname, patronymic, age, married, weapons, kills);
         printInfo(arrBandits);
+        serverPost();
         display("information");
         alert("Информация сохранена");
-    } 
+        
+    }  */
   });
   
-  
+
+  console.log(arrBandits)
+
   document.getElementById("mainMenu").addEventListener("click",function() {
     display("information");
   });
+
+  //Работа с сервером
+
+  const requestURL = 'http://localhost:3000/post';
+
+
+   async function serverPost(newBandit){
+    console.log(newBandit)
+    fetch(requestURL,{
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(newBandit)
+    }); 
+  } 
+  
+ 
+  async function serverGet(){
+    let response =  await fetch(requestURL)
+    let text = await response.json();
+    console.log(text);
+    
+    printInfo(Array.from(text))
+    
+
+  }  
+
+  serverGet()
+
+
+  function deleteData(item, url) {
+    return fetch(url + '/' + item, {
+      method: 'delete'
+    })
+    .then(response => response.json());
+  }
+
+  //deleteData(g1,requestURL)
+
+
+
+
+
+
+
+  
+  
+
+
